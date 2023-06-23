@@ -33,7 +33,7 @@ function Button() {
 
   return (
     <div>
-      <h2>BUTTON</h2>
+      <h3>BUTTON</h3>
       {btnList.map((size) => {
         if (size === 'large') {
           return (
