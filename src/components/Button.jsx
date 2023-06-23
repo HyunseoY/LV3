@@ -1,5 +1,7 @@
 import React from 'react';
 import { styled } from 'styled-components';
+import { BiRightArrow } from 'react-icons/bi';
+import { RiAlarmWarningLine } from 'react-icons/ri';
 
 function Button() {
   const btnList = ['large', 'medium', 'small'];
@@ -33,11 +35,35 @@ function Button() {
     <div>
       <h2>BUTTON</h2>
       {btnList.map((size) => {
-        return <StBtnG style={getBtnSize(size)}>{size}</StBtnG>;
+        if (size === 'large') {
+          return (
+            <StBtnG
+              style={getBtnSize(size)}
+              onClick={() => window.alert('버튼을 만들어보세요!')}
+            >
+              Large Primary Button
+              <BiRightArrow />
+            </StBtnG>
+          );
+        } else {
+          return <StBtnG style={getBtnSize(size)}>{size}</StBtnG>;
+        }
       })}
 
       {btnList.map((size) => {
-        return <StBtnR style={getBtnSize(size)}>{size}</StBtnR>;
+        if (size === 'large') {
+          return (
+            <StBtnR
+              style={getBtnSize(size)}
+              onClick={() => window.prompt('어렵나요?')}
+            >
+              Large Primary Button
+              <RiAlarmWarningLine />
+            </StBtnR>
+          );
+        } else {
+          return <StBtnR style={getBtnSize(size)}>{size}</StBtnR>;
+        }
       })}
     </div>
   );
@@ -52,6 +78,7 @@ const StBtnG = styled.button`
   border: none;
   border-radius: 10px;
   margin: 5px;
+
   &:active {
     background-color: white;
     color: black;
@@ -65,6 +92,7 @@ const StBtnR = styled.button`
   border: none;
   border-radius: 10px;
   margin: 5px;
+
   &:active {
     background-color: white;
     color: black;

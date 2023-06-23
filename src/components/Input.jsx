@@ -1,11 +1,12 @@
 import React from 'react';
+import { styled } from 'styled-components';
 
 function Input() {
   return (
     <div>
       <h2>INPUT</h2>
-      <input type="text" />
-      <input type="" />
+      <StInput type="text" />
+      <StInput type="" />
       <button
         onClick={() => {
           alert('hi');
@@ -18,3 +19,7 @@ function Input() {
 }
 
 export default Input;
+
+const StInput = styled.input`
+  margin-left: 10px;
+`;
