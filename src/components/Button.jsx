@@ -34,42 +34,50 @@ function Button() {
   return (
     <div>
       <h3>BUTTON</h3>
-      {btnList.map((size) => {
-        if (size === 'large') {
-          return (
-            <StBtnG
-              style={getBtnSize(size)}
-              onClick={() => window.alert('버튼을 만들어보세요!')}
-            >
-              Large Primary Button
-              <BiRightArrow />
-            </StBtnG>
-          );
-        } else {
-          return <StBtnG style={getBtnSize(size)}>{size}</StBtnG>;
-        }
-      })}
-
-      {btnList.map((size) => {
-        if (size === 'large') {
-          return (
-            <StBtnR
-              style={getBtnSize(size)}
-              onClick={() => window.prompt('어렵나요?')}
-            >
-              Large Primary Button
-              <RiAlarmWarningLine />
-            </StBtnR>
-          );
-        } else {
-          return <StBtnR style={getBtnSize(size)}>{size}</StBtnR>;
-        }
-      })}
+      <BtnContainer>
+        {btnList.map((size) => {
+          if (size === 'large') {
+            return (
+              <StBtnG
+                style={getBtnSize(size)}
+                onClick={() => window.alert('버튼을 만들어보세요!')}
+              >
+                Large Primary Button
+                <BiRightArrow />
+              </StBtnG>
+            );
+          } else {
+            return <StBtnG style={getBtnSize(size)}>{size}</StBtnG>;
+          }
+        })}
+      </BtnContainer>
+      <BtnContainer>
+        {btnList.map((size) => {
+          if (size === 'large') {
+            return (
+              <StBtnR
+                style={getBtnSize(size)}
+                onClick={() => window.prompt('어렵나요?')}
+              >
+                Large Primary Button
+                <RiAlarmWarningLine />
+              </StBtnR>
+            );
+          } else {
+            return <StBtnR style={getBtnSize(size)}>{size}</StBtnR>;
+          }
+        })}
+      </BtnContainer>
     </div>
   );
 }
 
 export default Button;
+
+const BtnContainer = styled.div`
+  display: flex;
+  align-items: center;
+`;
 
 const StBtnG = styled.button`
   cursor: pointer;
