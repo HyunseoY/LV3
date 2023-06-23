@@ -8,7 +8,13 @@ function Input() {
   return (
     <>
       <h3>INPUT</h3>
-      <StForm>
+      <StForm
+        onSubmit={(e) => {
+          e.preventDefault();
+          const plainPrice = price.replaceAll(',', '');
+          alert(`name : ${name} price : ${plainPrice}`);
+        }}
+      >
         <StInput
           type="text"
           value={name}
@@ -25,18 +31,10 @@ function Input() {
               /\B(?=(\d{3})+(?!\d))/g,
               ','
             );
-
             setPrice(priceNumber);
           }}
         />
-        <StBtn
-          type="submit"
-          onClick={() => {
-            alert(`name : ${name} price : ${price}`);
-          }}
-        >
-          저장
-        </StBtn>
+        <StBtn type="submit">저장</StBtn>
       </StForm>
     </>
   );
