@@ -11,6 +11,9 @@ function Input() {
       <StForm
         onSubmit={(e) => {
           e.preventDefault();
+          if (name === '' || price === '')
+            return alert('이름과 가격을 모두 입력해 주세요!');
+
           const plainPrice = price.replaceAll(',', '');
           alert(`name : ${name} price : ${plainPrice}`);
         }}

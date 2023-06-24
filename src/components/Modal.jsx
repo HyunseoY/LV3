@@ -1,10 +1,11 @@
 import React from 'react';
-import { useState } from 'react';
+import { useState, useRef } from 'react';
 import { styled } from 'styled-components';
 
 function Modal() {
   const [isOpen, setIsOpen] = useState(false);
   const [clickedButton, setClickedButton] = useState('');
+  const innerRef = useRef();
 
   const toggleModal = (buttonName) => {
     setIsOpen((prev) => !prev);
@@ -19,21 +20,30 @@ function Modal() {
 
       {isOpen && (
         <ModalContainer>
-          <Outer onClick={() => toggleModal('StBtnR')}>
-            <Inner>
+          <Outer
+            onClick={(event) => {
+              if (
+                clickedButton === 'StBtnR' &&
+                !innerRef.current.contains(event.target)
+              ) {
+                setIsOpen(false);
+              }
+            }}
+          >
+            <Inner ref={innerRef}>
               {clickedButton === 'StBtnG' ? (
                 <>
                   <p>
                     닫기와 확인 버튼 2개가 있고, 외부 영역을 눌러도 모달이
                     닫히지 않아요.
                   </p>
-                  <button onClick={() => toggleModal('StBtnG')}>닫기</button>
+                  <button onClick={() => setIsOpen(false)}>닫기</button>
                   <button>확인</button>
                 </>
               ) : (
                 <>
                   <p>닫기 버튼 1개가 있고, 외부 영역을 누르면 모달이 닫혀요.</p>
-                  <button onClick={() => toggleModal('StBtnR')}>닫기</button>
+                  <button onClick={() => setIsOpen(false)}>닫기</button>
                 </>
               )}
             </Inner>
