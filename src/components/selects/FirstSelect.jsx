@@ -43,7 +43,7 @@ export default FirstSelect;
 
 const DropDownWrapper = styled.div`
   width: 200px;
-  margin-left: 20px;
+  margin: 50px;
   border-radius: 5px;
   border: 1px solid lightgray;
 `;
