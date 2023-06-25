@@ -6,12 +6,10 @@ import SecondSelect from './selects/SecondSelect';
 function Select() {
   return (
     <>
+      <h3>SELECT</h3>
       <StContainer>
-        <h3>SELECT</h3>
-        <StSelects>
-          <FirstSelect />
-          <SecondSelect />
-        </StSelects>
+        <FirstSelect />
+        <SecondSelect />
       </StContainer>
     </>
   );
@@ -25,8 +23,5 @@ const StContainer = styled.div`
   border: 2px solid #d3d3d3;
   box-sizing: border-box;
   overflow: hidden;
-`;
-
-const StSelects = styled.div`
   display: flex;
 `;
