@@ -39,6 +39,7 @@ function Button() {
           if (size === 'large') {
             return (
               <StBtnG
+                key={size}
                 style={getBtnSize(size)}
                 onClick={() => window.alert('버튼을 만들어보세요!')}
               >
@@ -47,7 +48,11 @@ function Button() {
               </StBtnG>
             );
           } else {
-            return <StBtnG style={getBtnSize(size)}>{size}</StBtnG>;
+            return (
+              <StBtnG key={size} style={getBtnSize(size)}>
+                {size}
+              </StBtnG>
+            );
           }
         })}
       </BtnContainer>
@@ -56,6 +61,7 @@ function Button() {
           if (size === 'large') {
             return (
               <StBtnR
+                key={size}
                 style={getBtnSize(size)}
                 onClick={() => window.prompt('어렵나요?')}
               >
@@ -64,7 +70,11 @@ function Button() {
               </StBtnR>
             );
           } else {
-            return <StBtnR style={getBtnSize(size)}>{size}</StBtnR>;
+            return (
+              <StBtnR key={size} style={getBtnSize(size)}>
+                {size}
+              </StBtnR>
+            );
           }
         })}
       </BtnContainer>
