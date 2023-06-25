@@ -1,32 +1,19 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { styled } from 'styled-components';
+import FirstSelect from './selects/FirstSelect';
+import SecondSelect from './selects/SecondSelect';
 
 function Select() {
-  const optionList = ['고양이', '개', '앵무새'];
-  const [selected, setSelected] = useState('선택하세요');
-
   return (
-    <StContainer>
-      <h3>SELECT</h3>
-
-      <select
-        value={selected}
-        onChange={(e) => {
-          setSelected(e.target.value);
-        }}
-      >
-        {optionList.map((item) => {
-          return (
-            <>
-              <option value={item} key={item}>
-                {console.log(item)}
-                {selected}
-              </option>
-            </>
-          );
-        })}
-      </select>
-    </StContainer>
+    <>
+      <StContainer>
+        <h3>SELECT</h3>
+        <StSelects>
+          <FirstSelect />
+          <SecondSelect />
+        </StSelects>
+      </StContainer>
+    </>
   );
 }
 
@@ -34,7 +21,12 @@ export default Select;
 
 const StContainer = styled.div`
   width: 100%;
-  height: 100px;
+  height: 150px;
   border: 2px solid #d3d3d3;
   box-sizing: border-box;
+  overflow: hidden;
+`;
+
+const StSelects = styled.div`
+  display: flex;
 `;
